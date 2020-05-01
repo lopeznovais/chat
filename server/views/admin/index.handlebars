@@ -1,0 +1,25 @@
+<div class="jumbotron">
+    <h1 class="display-4">Chat Node.js</h1>
+    <p class="lead">Sistema de chat desenvolvido com Node.js</p>
+    <hr class="my-4">
+</div>
+<hr>
+<h2>Mensagens recentes:</h2>
+
+{{#each mensagens}}
+<div class="card mt-4">
+    <div class="card-body">
+        <h3>{{usuario}}</h3>
+        <p>{{conteudo}}</p>
+        <hr>
+        <small>Sala: {{room}}</small><br>
+        <small>Data de publicação: {{data}}</small>
+        <form action="/deletar" method="POST">
+            <input type="hidden" name="id" value="{{_id}}">
+            <button type="submit" class="btn btn-danger mt-2">Deletar Mensagem</button>
+        </form>
+    </div>
+</div>
+{{else}}
+<h5>Nenhuma mensagem</h5>
+{{/each}}
